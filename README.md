@@ -4,7 +4,8 @@ Library Management System (LMS) is a simple application that displays a list of 
 
 ## SERVING BUILD
 We use the express static middleware to serve our static build folder like shown below
-``` app.use(express.static(path.join(__dirname, 'build')));
+``` 
+app.use(express.static(path.join(__dirname, 'build')));
 ```
 But serving the folder is not just enough since it is not a static website, our application has Client-Side Routing (React-Router) too.
 Let's say */add/book* is a dynamic route in our react application, and there is a fresh page load for a */add/book*, the server looks for the file *build/add/book* and does not find it. The server needs to be configured to respond to a request to */add/book* by serving *index.html* For example, we can amend our Express example above to serve index.html for any unknown paths:
